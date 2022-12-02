@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Hash;
 use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Validation\Rules;
 use Illuminate\Support\Facades\DB;
+use App\Mail\SocialMediaMail;
+use Illuminate\Support\Facades\Mail;
+
 
 class RegisteredUserController extends Controller
 {
@@ -142,4 +145,6 @@ class RegisteredUserController extends Controller
         ->update(array('requestStatus' => "refused"));
         return redirect(RouteServiceProvider::HOME);
     }
+
+    
 }
