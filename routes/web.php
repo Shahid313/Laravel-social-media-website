@@ -29,6 +29,9 @@ Route::get('/googleCallBack', [RegisteredUserController::class, 'handlecallback'
 Route::post('/add-friend/{madeFriendId}/{madeByFriendId}', [RegisteredUserController::class, 'makefriend']);
 Route::post('/accept-friend-request/{friendId}', [RegisteredUserController::class, 'acceptfriendrequest']);
 Route::post('/refuse-friend-request/{friendId}', [RegisteredUserController::class, 'refusefriendrequest']);
+Route::get('/see-profileImage', [RegisteredUserController::class, 'profileImage']);
+
+Route::get('/get-friends', [PostController::class, 'friends']);
 
 Route::get('/post', [PostController::class, 'create'])->name('create-post');
 Route::post('/store-post/{id}', [PostController::class, 'store']);

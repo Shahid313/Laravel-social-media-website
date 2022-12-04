@@ -20,6 +20,13 @@
                     </x-nav-link>
                 </div>
 
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link href="/get-friends" :active="request()->routeIs('get-friends')">
+                        {{ __('Friends') }}
+                    </x-nav-link>
+
+                </div>
+
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex items-center">
                     {!!  $shareButons !!}
                 </div>
@@ -29,7 +36,8 @@
                 
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <div class="flex items-center px-1 pt-1 leading-5 transition duration-150 ease-in-out rounded-full">
+                    <a class="flex items-center px-1 pt-1 leading-5" href="/see-profileImage">
+                    <div class="transition duration-150 ease-in-out rounded-full">
 
                         @if(Auth::user()->profileImage != "nullImage")
 
@@ -46,8 +54,10 @@
                         
                         @endif
                     </div>
+                    </a>
 
                     </div>
+
             </div>
 
 

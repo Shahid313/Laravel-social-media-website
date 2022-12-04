@@ -29,7 +29,7 @@ class PostController extends Controller
 
         $shareButons=\Share::page(
             url('/dashboard'),
-        )->twitter();
+        )->facebook();
 
         return view('dashboard', ['posts' => $posts, 'replies' => $replies, 'likes' => $likes, 'users' => $users, 'requests' => $requests, 'shareButons' => $shareButons]);
     }
@@ -111,5 +111,15 @@ class PostController extends Controller
     
             return redirect('/dashboard');
            
+    }
+
+    public function friends(){
+        $shareButons=\Share::page(
+            url('/dashboard'),
+        )->twitter();
+
+        $users = DB::select('SELECT * from users left join friends on users.id = friends.madeFriendId or users.id = friends.madeByFriendId');
+        
+        return view('friends', ['shareButons' => $shareButons, 'users' => $users]);
     }
 }

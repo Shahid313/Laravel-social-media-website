@@ -40,11 +40,20 @@ class SocialMediaMail extends Mailable
      *
      * @return \Illuminate\Mail\Mailables\Content
      */
-    public function content()
-    {
-        return new Content(
-            view: 'view.name',
-        );
+    // public function content()
+    // {
+    //     return new Content(
+    //         view: 'mymail',
+    //         from: 'shahidkahn11@gmail.com'
+    //     );
+    // }
+    /*
+    **
+    @return $this
+    */
+
+    public function build(){
+        return $this->view('mymail');
     }
 
     /**

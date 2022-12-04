@@ -54,12 +54,8 @@ class RegisteredUserController extends Controller
                 $user->profileImage = $filename;
                 $user->backgroundImage1 = "nullImage";
                 $user->backgroundImage2 = "nullImage";
-            
                 $user->save();
-
-
                 Auth::login($user);
-
                 return redirect(RouteServiceProvider::HOME);
             }else{
                 $user = new User;
@@ -144,6 +140,10 @@ class RegisteredUserController extends Controller
         ->limit(1)  // optional - to ensure only one record is updated.
         ->update(array('requestStatus' => "refused"));
         return redirect(RouteServiceProvider::HOME);
+    }
+
+    public function profileImage(){
+        return view('profile.profileImage');
     }
 
     
